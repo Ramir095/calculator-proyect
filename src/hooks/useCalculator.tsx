@@ -97,9 +97,7 @@ export const useCalculator = () => {
   const calculate = () => {
     
     const number1 = Number(number);
-    console.log(number1);
     const number2 = Number(previousNumber);
-    console.log(number2);
     
     if(number1 && !number2) {
       return setNumber(`${number1}`)
