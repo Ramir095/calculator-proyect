@@ -97,8 +97,17 @@ export const useCalculator = () => {
   const calculate = () => {
     
     const number1 = Number(number);
+    console.log(number1);
     const number2 = Number(previousNumber);
-
+    console.log(number2);
+    
+    if(number1 && !number2) {
+      return setNumber(`${number1}`)
+    };
+    if( number1 === 0 && number2 === 0) {
+      return setNumber('0');
+    }
+    
     switch (lastOperations.current) {
       case Operations.add:
         setNumber(`${number1 + number2}`)
@@ -137,3 +146,5 @@ export const useCalculator = () => {
 
 // Notar que la funcion addNumbers recibe y debemos pasarle un parametro, un string. Me salta un error porque en el inteface no aclaramos que esa funcion va a recibir un parametro
 // En la funcion changeNumberPrevious estamos evaluando con number.endsWith('.') que si el numero termina con punto '.', me borre el punto y me lo guarde en el estado 'previousNumber'; de lo contrario solo que guarde el numeor en 'previousNumber',. 
+
+// Repasar logica de la linea 102
